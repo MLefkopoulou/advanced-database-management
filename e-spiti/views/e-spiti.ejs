@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<title>e-spiti</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("images/house4.jpg");
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: #ffe0cc;
+      padding: 14px 16px;
+      background-color: #ff8c00;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color:  #001a33;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color:#ff8c00;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content  .w3-button {
+      float: none;
+      color:#ffe0cc;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #001a33;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .w3-button:hover{color:#ffe0cc !important;background-color:#001a33 !important}
+
+
+
+    a.disabled {
+      pointer-events: none;
+      cursor: default;
+    }
+
+
+
+
+    .radio-toolbar {
+      margin: 10px;
+    }
+
+    .radio-toolbar input[type="radio"] {
+      background-color: #001a33;
+      color:#ffe0cc;
+      position: fixed;
+      width: 0;
+    }
+
+    .radio-toolbar label {
+        display: inline-block;
+        background-color: #001a33;
+        padding: 10px 20px;
+        font-family: sans-serif, Arial;
+        font-size: 16px;
+        border: 2px solid #001a33;
+        border-radius: 4px;
+    }
+
+    .radio-toolbar label:hover {
+      background-color:#ff8c00;
+        border: 2px solid #ff8c00;
+      color:#ffe0cc;
+    }
+
+    .radio-toolbar input[type="radio"]:focus + label {
+        border: 2px dashed #444;
+    }
+
+    .radio-toolbar input[type="radio"]:checked + label {
+          background-color:#ff8c00;
+        color:#ffe0cc;
+        border-color: orange;
+    }
+
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar  w3-card  " id="myNavbar" style = 'background-color:#ff8c00;  color:#ffe0cc;}'>
+
+    <form action="/main" method="post">
+          <input type="hidden" name="username" value="<%=  username%>">
+      <button class="w3-bar-item w3-button w3-wide"type="submit">LOGO</button>
+    </form>
+    <!-- Right-sided navbar links -->
+    <div class=" w3-hide-small">
+
+      <div class="dropdown">
+        <button class="dropbtn">SALES
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <div class="dropdown-content">
+            <form action="\all_sales" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class=" w3-button"type="submit">All sales</button>
+            </form>
+            <form action="\home_sales" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class="  w3-button"type="submit">Ηome sales</button>
+            </form>
+            <form action="\business_sales" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class="  w3-button"type="submit">Βusiness premises sales</button>
+            </form>
+            <form action="\land_sales" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class="  w3-button"type="submit">Land sales</button>
+            </form>
+            <a href="#"  class="disabled">____________</a>
+            <form action="\department_sales" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class=" w3-button"type="submit">Departments sales</button>
+            </form>
+            <form action="\studio_sales" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class=" w3-button"type="submit">Studio sales</button>
+            </form>
+            <form action="\monokatoikia_sales" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class=" w3-button"type="submit">Detached house sales</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropbtn">RENTALS
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <div class="dropdown-content">
+            <form action="\all_rentals" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class=" w3-button"type="submit">All rentals</button>
+            </form>
+            <form action="\home_rentals" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class="  w3-button"type="submit">Ηome rentals</button>
+            </form>
+            <form action="business_rentals" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class="  w3-button"type="submit">Βusiness premises rentals</button>
+            </form>
+            <form action="land_rentals" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class="  w3-button"type="submit">Land rentals</button>
+            </form>
+            <a href="#"  class="disabled">____________</a>
+            <form action="\department_rentals" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class=" w3-button"type="submit">Departments rentals</button>
+            </form>
+            <form action="studio_rentals" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class=" w3-button"type="submit">Studio rentals</button>
+            </form>
+            <form action="monokatoikia_rentals" method="post">
+                <input type="hidden" name="usernamemy" value="<%= username%>">
+              <button class=" w3-button"type="submit">Detached house rentals</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <%if(username == 'nologin'){%>
+            <a href="login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+      <%}else{%>
+        <form action="my" method="post">
+          <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class="w3-bar-item w3-button w3-wide"type="submit"><%= username%> 's ADDS</button>
+        </form>
+        <form action="/add" method="post">
+            <input type="hidden" name="username" value="<%= username%>">
+          <button class="w3-bar-item w3-button w3-wide"type="submit">ADD NEW</button>
+        </form>
+        <%}%>
+
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-hide-medium w3-hide-large  " style="display:none; background-color:#ff8c00;  " id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16" style="color : white">Close ×</a>
+  <div class="dropdown">
+    <button class="dropbtn">SALES
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="dropdown-content">
+        <form action="\all_sales" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class=" w3-button"type="submit">All sales</button>
+        </form>
+        <form action="\home_sales" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class="  w3-button"type="submit">Ηome sales</button>
+        </form>
+        <form action="\business_sales" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class="  w3-button"type="submit">Βusiness premises sales</button>
+        </form>
+        <form action="\land_sales" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class="  w3-button"type="submit">Land sales</button>
+        </form>
+        <a href="#"  class="disabled">____________</a>
+        <form action="\department_sales" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class=" w3-button"type="submit">Departments sales</button>
+        </form>
+        <form action="\studio_sales" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class=" w3-button"type="submit">Studio sales</button>
+        </form>
+        <form action="\monokatoikia_sales" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class=" w3-button"type="submit">Detached house sales</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">RENTALS
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <div class="dropdown-content">
+        <form action="\all_rentals" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class=" w3-button"type="submit">All rentals</button>
+        </form>
+        <form action="\home_rentals" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class="  w3-button"type="submit">Ηome rentals</button>
+        </form>
+        <form action="business_rentals" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class="  w3-button"type="submit">Βusiness premises rentals</button>
+        </form>
+        <form action="land_rentals" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class="  w3-button"type="submit">Land rentals</button>
+        </form>
+        <a href="#"  class="disabled">____________</a>
+        <form action="\department_rentals" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class=" w3-button"type="submit">Departments rentals</button>
+        </form>
+        <form action="studio_rentals" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class=" w3-button"type="submit">Studio rentals</button>
+        </form>
+        <form action="monokatoikia_rentals" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+          <button class=" w3-button"type="submit">Detached house rentals</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <%if(username == 'nologin'){%>
+        <a href="login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+  <%}else{%>
+    <form action="\my" method="post">
+      <input type="hidden" name="usernamemy" value="<%= username%>">
+      <button class="w3-bar-item w3-button w3-wide"type="submit"><%= username%> 's ADDS</button>
+    </form>
+    <form action="add" method="post">
+        <input type="hidden" name="username" value="<%= username%>">
+      <button class="w3-bar-item w3-button w3-wide"type="submit">ADD NEW</button>
+    </form>
+    <%}%>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-left w3-text-white" style="padding:48px">
+    <br />
+    <span class="w3-jumbo w3-hide-small " style='background-color :  #001a33;'>Εasily find your next property</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium" style='background-color :  #001a33;'>Εasily find your next property</span><br>
+    <span class="w3-large" style='background-color :  #001a33;'>Search whatever you want</span><br><br><br>
+      <form action="/complex_search"  method="post">
+    <div class="radio-toolbar">
+      <%if(real_estate_type == 'land'){%>
+          <input type="radio" id="radioLand" name="radiotype" value="Γη" checked>
+          <label for="radioLand">Land</label>
+        <%}else{%>
+        <input type="radio" id="radioLand" name="radiotype" value="Γη" >
+        <label for="radioLand">Land</label>
+        <%}%>
+        <%if(real_estate_type == 'work'){%>
+          <input type="radio" id="radioΒusiness" name="radiotype" value="Εργασία" checked>
+          <label for="radioΒusiness">Βusiness premises</label>
+          <%}else{%>
+            <input type="radio" id="radioΒusiness" name="radiotype" value="Εργασία">
+            <label for="radioΒusiness">Βusiness premises</label>
+          <%}%>
+
+          <%if(real_estate_type == 'home'){%>
+            <input type="radio" id="radioΗome" name="radiotype" value="Σπίτι" checked>
+            <label for="radioΗome">Ηome</label>
+            <%}else{%>
+              <input type="radio" id="radioΗome" name="radiotype" value="Σπίτι">
+              <label for="radioΗome">Ηome</label>
+            <%}%>
+
+
+
+    </div>
+
+<br />
+    <div style="background-color : #001a33; padding: 8px;">
+
+      <input style=" padding: 2px;" type="text"  name = "location" value="" placeholder="Location" />
+        <i class="fa   fa-map-marker"></i>
+      <input  style=" padding: 2px;" type="number"  name = "from_price" value="" placeholder="from" />
+       <span class="currency-icon">&#8364;</span>
+      <input  style=" padding: 2px;" type="number"  name = "to_price" value="" placeholder="to" />
+       <span class="currency-icon">&#8364;</span>
+      <input  style=" padding: 2px;" type="number"  name = "from_m" value="" placeholder="from" />
+      <span class="currency-icon">m&#178;</span>
+      <input  style=" padding: 2px;" type="number"  name = "to_m"  value="" placeholder="to" />
+          <span class="currency-icon">m&#178;</span>
+    </div>
+    <div class="radio-toolbar">
+
+        <%if(page_case == 'sale'){%>
+          <input type="radio" id="radioSale" name="radiocase" value="Πώληση" checked>
+          <label for="radioSale">Sale</label>
+          <%}else{%>
+            <input type="radio" id="radioSale" name="radiocase" value="Πώληση" >
+            <label for="radioSale">Sale</label>
+          <%}%>
+
+          <%if(page_case == 'rent'){%>
+            <input type="radio" id="radioRent" name="radiocase" value="ενοικίαση" checked>
+            <label for="radioRent">Rent</label>
+            <%}else{%>
+              <input type="radio" id="radioRent" name="radiocase" value="ενοικίαση">
+              <label for="radioRent">Rent</label>
+            <%}%>
+
+    </div>
+
+      <input type="hidden" name="username" value="<%=  username%>">
+      <input type="hidden" name="search_building" value="<%=  building%>">
+      <button class="w3-button w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off" type="submit" id = "search_button"  >Search</button>
+    </form>
+  </div>
+</header>
+<br /><br /><br />
+<center>
+  <h1 style="color: #ff8c00"><%= page_title%></h1>
+</center>
+
+<br /><br /><br />
+<%for(var i = 0; i < data.length; i++){%><!-- Second Photo Grid-->
+  <%if(i%3 == 0){%>
+    <div class="w3-row-padding">
+  <%}%>
+  <div class="w3-third w3-container w3-margin-bottom">
+
+
+
+    <form action="/one_property" method="post">
+          <input type="hidden" name="username" value="<%=  username%>">
+          <input type="hidden" name="property_id" value="<%= data[i]._id%>">
+          <button type="submit">
+
+    <%if( data[i].real_estate_type == 'Γη'){%>
+      <img src="/images/land.jpg"  style="width:100%; cursor: pointer;" class="w3-hover-opacity">
+    <%}else if( data[i].real_estate_type == 'Εργασία') {%>
+      <img src="/images/work.jpg"  style="width:100%; cursor: pointer;" class="w3-hover-opacity">
+      <%} else if ( data[i].real_estate_type == 'Σπίτι'){
+        if (data[i].building == 'Διαμέρισμα'){%>
+          <img src="/images/department.jpg"  style="width:100%; cursor: pointer;" class="w3-hover-opacity">
+        <%}else if (data[i].building == 'Μονοκατοικία'){%>
+          <img src="/images/monokatoikia.jpg"  style="width:100%; cursor: pointer;" class="w3-hover-opacity">
+      <%}else if(data[i].building == 'Στούντιο' || data[i].building == 'Studio' ){%>
+        <img src="/images/studio.jpg"  style="width:100%; cursor: pointer;" class="w3-hover-opacity">
+      <%}}%>
+    </button>
+  </form>
+    <div class="w3-container w3-white">
+      <p><b><%= data[i].title %></b></p>
+      <%if (data[i].details != null){%>
+      <%if(data[i].details.length > 140){%>
+          <p><%= data[i].details.substring(0,140) + "........" %></p>
+    <% }else{%>
+        <p><%= data[i].details %></p>
+      <%}%>
+            <%}%>
+      <p><i class="fa fa-money"></i><strong>   Price : </strong>  <%=data[i].price%>   <i class="fa fa-area-chart "></i> <strong>   m&#178; : </strong><%=data[i].area%> </p>
+      <p>
+      </p>
+    </div>
+  </div>
+<%if(i%3 == 2){%>
+
+</div>
+<%}else if(i+1 >= data.length){%>
+  </div>
+  <%}%>
+<%}%>
+
+<!-- Footer -->
+<footer class="w3-center w3-padding-64" style='background-color :  #001a33;'>
+  <a href="#home" class="w3-button " style= 'background-color: #ff8c00;'><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+
+
+
+</script>
+
+</body>
+</html>

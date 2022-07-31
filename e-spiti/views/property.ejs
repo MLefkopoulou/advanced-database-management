@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+<html>
+<title>One Property</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
+.mySlides {display: none}
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+td {
+	border: 1px solid #dddddd;
+	text-align: center;
+	padding: 8px;
+}
+th {
+	border: 1px solid #dddddd;
+	padding: 8px;
+}
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+
+    a.disabled {
+      pointer-events: none;
+      cursor: default;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: #ffe0cc;
+      padding: 14px 16px;
+      background-color: #ff8c00;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover, .dropdown:hover .dropbtn {
+      background-color:  #001a33;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color:#ff8c00;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color:#ffe0cc;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #001a33;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+      .w3-button:hover{color:#ffe0cc !important;background-color:#001a33 !important}
+
+
+      .buttonud {
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          background-color: orange;
+    }
+</style>
+<body >
+
+
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar  w3-card  " id="myNavbar" style = 'background-color:#ff8c00;  color:#ffe0cc;}'>
+
+      <form action="/main" method="post">
+            <input type="hidden" name="username" value="<%=  username%>">
+        <button class="w3-bar-item w3-button w3-wide"type="submit">LOGO</button>
+      </form>
+      <!-- Right-sided navbar links -->
+      <div class=" w3-hide-small">
+
+        <div class="dropdown">
+          <button class="dropbtn">SALES
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <div class="dropdown-content">
+              <form action="\all_sales" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class=" w3-button"type="submit">All sales</button>
+              </form>
+              <form action="\home_sales" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class="  w3-button"type="submit">Ηome sales</button>
+              </form>
+              <form action="\business_sales" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class="  w3-button"type="submit">Βusiness premises sales</button>
+              </form>
+              <form action="\land_sales" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class="  w3-button"type="submit">Land sales</button>
+              </form>
+              <a href="#"  class="disabled">____________</a>
+              <form action="\department_sales" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class=" w3-button"type="submit">Departments sales</button>
+              </form>
+              <form action="\studio_sales" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class=" w3-button"type="submit">Studio sales</button>
+              </form>
+              <form action="\monokatoikia_sales" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class=" w3-button"type="submit">Detached house sales</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">RENTALS
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <div class="dropdown-content">
+              <form action="\all_rentals" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class=" w3-button"type="submit">All rentals</button>
+              </form>
+              <form action="\home_rentals" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class="  w3-button"type="submit">Ηome rentals</button>
+              </form>
+              <form action="business_rentals" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class="  w3-button"type="submit">Βusiness premises rentals</button>
+              </form>
+              <form action="land_rentals" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class="  w3-button"type="submit">Land rentals</button>
+              </form>
+              <a href="#"  class="disabled">____________</a>
+              <form action="\department_rentals" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class=" w3-button"type="submit">Departments rentals</button>
+              </form>
+              <form action="studio_rentals" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class=" w3-button"type="submit">Studio rentals</button>
+              </form>
+              <form action="monokatoikia_rentals" method="post">
+                  <input type="hidden" name="usernamemy" value="<%= username%>">
+                <button class=" w3-button"type="submit">Detached house rentals</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <%if(username == 'nologin'){%>
+              <a href="login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+        <%}else{%>
+          <form action="my" method="post">
+            <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class="w3-bar-item w3-button w3-wide"type="submit"><%= username%> 's ADDS</button>
+          </form>
+          <form action="/add" method="post">
+              <input type="hidden" name="username" value="<%= username%>">
+            <button class="w3-bar-item w3-button w3-wide"type="submit">ADD NEW</button>
+          </form>
+          <%}%>
+
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-hide-medium w3-hide-large  " style="display:none; background-color:#ff8c00;  " id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16" style="color : white">Close ×</a>
+    <div class="dropdown">
+      <button class="dropbtn">SALES
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <div class="dropdown-content">
+          <form action="\all_sales" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class=" w3-button"type="submit">All sales</button>
+          </form>
+          <form action="\home_sales" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class="  w3-button"type="submit">Ηome sales</button>
+          </form>
+          <form action="\business_sales" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class="  w3-button"type="submit">Βusiness premises sales</button>
+          </form>
+          <form action="\land_sales" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class="  w3-button"type="submit">Land sales</button>
+          </form>
+          <a href="#"  class="disabled">____________</a>
+          <form action="\department_sales" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class=" w3-button"type="submit">Departments sales</button>
+          </form>
+          <form action="\studio_sales" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class=" w3-button"type="submit">Studio sales</button>
+          </form>
+          <form action="\monokatoikia_sales" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class=" w3-button"type="submit">Detached house sales</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">RENTALS
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <div class="dropdown-content">
+          <form action="\all_rentals" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class=" w3-button"type="submit">All rentals</button>
+          </form>
+          <form action="\home_rentals" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class="  w3-button"type="submit">Ηome rentals</button>
+          </form>
+          <form action="business_rentals" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class="  w3-button"type="submit">Βusiness premises rentals</button>
+          </form>
+          <form action="land_rentals" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class="  w3-button"type="submit">Land rentals</button>
+          </form>
+          <a href="#"  class="disabled">____________</a>
+          <form action="\department_rentals" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class=" w3-button"type="submit">Departments rentals</button>
+          </form>
+          <form action="studio_rentals" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class=" w3-button"type="submit">Studio rentals</button>
+          </form>
+          <form action="monokatoikia_rentals" method="post">
+              <input type="hidden" name="usernamemy" value="<%= username%>">
+            <button class=" w3-button"type="submit">Detached house rentals</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%if(username == 'nologin'){%>
+          <a href="login" onclick="w3_close()" class="w3-bar-item w3-button">LOGIN</a>
+    <%}else{%>
+      <form action="\my" method="post">
+        <input type="hidden" name="usernamemy" value="<%= username%>">
+        <button class="w3-bar-item w3-button w3-wide"type="submit"><%= username%> 's ADDS</button>
+      </form>
+      <form action="add" method="post">
+          <input type="hidden" name="username" value="<%= username%>">
+        <button class="w3-bar-item w3-button w3-wide"type="submit">ADD NEW</button>
+      </form>
+      <%}%>
+  </nav>
+<div class="w3-content w3-border-left w3-border-right" style="padding-top : 100px;">
+
+
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-white"style="margin-left:160px; margin-right:160px; " >
+
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:80px"></div>
+
+  <!-- Slideshow Header -->
+  <div class="w3-container" id="apartment">
+     <h2  class="w3-text-orange"><%= prop_data.title%></h2>
+     <div class="w3-display-container mySlides">
+       <%if( prop_data.real_estate_type == 'Γη'){%>
+         <img src="/images/land.jpg"  style="width:100%; margin-bottom:-6px" class="w3-hover-opacity">
+       <%}else if( prop_data.real_estate_type == 'Εργασία') {%>
+         <img src="/images/work.jpg"  style="width:100%; margin-bottom:-6px" class="w3-hover-opacity">
+         <%} else if ( prop_data.real_estate_type == 'Σπίτι'){
+           if (prop_data.building == 'Διαμέρισμα'){%>
+             <img src="/images/department.jpg"  style="width:100%; margin-bottom:-6px" class="w3-hover-opacity">
+           <%}else if (prop_data.building == 'Μονοκατοικία'){%>
+             <img src="/images/monokatoikia.jpg"  style="width:100%; margin-bottom:-6px" class="w3-hover-opacity">
+         <%}else if(prop_data.building == 'Στούντιο'){%>
+           <img src="/images/studio.jpg"  style="width:100%; margin-bottom:-6px" class="w3-hover-opacity">
+         <%}}%>
+
+       <div class="w3-display-bottomleft w3-container w3-black">
+         <%if (prop_data.real_estate_type == 'Σπίτι'){%>
+              <p><%= prop_data.building%></p>
+           <%}else{%>
+             <p><%= prop_data.real_estate_type%></p>
+         <%}%>
+       </div>
+     </div>
+
+   </div>
+
+<br /><br />
+  <div class="w3-container">
+<%if(username == prop_data.agent){%>
+  <center>
+
+  <button onclick="document.getElementById('id01').style.display='block'" class="w3-btn buttonud" >Delete</button>
+  <form action="update" method="post">
+      <input type="hidden" name="username" value="<%= username%>">
+      <input type="hidden" name="id" value="<%= prop_data._id%>">
+    <button class="buttonud">Update</button>
+
+  </form>
+
+
+<div id="id01" class="w3-modal" >
+  <div class="w3-modal-content"  style="background:orange">
+    <div class="w3-container">
+      <span onclick="document.getElementById('id01').style.display='none'" class="w3-closebtn">&times;</span>
+      <form  action="delete" method="post">
+
+
+      <p>Are you sure ?</p>
+      <p>The property with id  = <%= prop_data._id%> will be deleted</p>
+           <input type="hidden" name="id" value="<%= prop_data._id%>">
+         <input type="hidden" name="username" value="<%= username%>">
+       <button class="w3-bar-item w3-button w3-wide"type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+</div>
+      </center>
+      <%}%>
+<center>  <h2 style="color:orange"><strong>Basic info</strong></h2></center>
+    <div class="w3-row w3-large">
+      <div class="">
+        <table>
+        <tr>
+             <td><strong> Case :</strong></td>
+             <td><%= prop_data.case%></td>
+        </tr>
+        <tr>
+             <td><strong> Real estate type :</strong> </td>
+             <td><%= prop_data.real_estate_type%></td>
+        </tr>
+          <%if(prop_data.building != null){%>
+        <tr>
+             <td><strong> Bulding : </strong></td>
+             <td><%= prop_data.building%></td>
+        </tr>
+        <%}%>
+        <tr>
+             <td><strong> Code : </strong></td>
+             <td><%= prop_data._id%></td>
+        </tr>
+        <tr>
+             <td><strong> Area:</strong></td>
+             <td> <%= prop_data.area%></td>
+        </tr>
+        <tr>
+             <td><strong> Price:</strong></td>
+             <td> <%= prop_data.price%></td>
+        </tr>
+
+      </table>
+      </div>
+    </div>
+
+<center>    <h2 style="color:orange"><strong>Location info</strong></h2></center>
+    <div class="w3-row w3-large">
+      <div class="">
+
+          <table>
+            <%if( prop_data.town != null){%>
+          <tr>
+               <td><strong>Town: </strong></td>
+               <td> <%= prop_data.town%></td>
+          </tr>
+          <%}%>
+          <%if( prop_data.town != null){%>
+          <tr>
+               <td><strong> Region:</strong> </td>
+               <td> <%= prop_data.region%></td>
+          </tr>
+          <%}%>
+            <%if( prop_data.address != null){%>
+          <tr>
+               <td><strong> Address:</strong></td>
+               <td> <%= prop_data.address%></td>
+          </tr>
+              <%}%>
+        </table>
+
+      </div>
+    </div>
+
+
+  <center>    <h2 style="color:orange"><strong>More info</strong></h2></center>
+      <div class="w3-row w3-large">
+        <div class="">
+          <table>
+              <%if( prop_data.floor != null){%>
+          <tr>
+            <%if(prop_data.real_estate_type == 'Σπίτι'){%>
+                <%if(prop_data.building == 'Μονοκατοικία'){%>
+                  <td><strong> Stages :</strong></td>
+
+                <%}else{%>
+               <td><strong> Floor :</strong></td>
+               <%}%>
+               <%}%>
+               <td><%= prop_data.floor%></td>
+          </tr>
+          <%}%>
+            <%if( prop_data.parking != null){%>
+          <tr>
+               <td><strong> Parking :</strong></td>
+               <td><%= prop_data.parking%></td>
+          </tr>
+          <%}%>
+          <%if( prop_data.heating_system != null){%>
+          <tr>
+               <td><strong>Heating system :</strong></td>
+               <td><%= prop_data.heating_system%></td>
+          </tr>
+          <%}%>
+            <%if( prop_data.rooms != null){%>
+          <tr>
+            <% if(prop_data.real_estate_type == 'Εργασία'){%>
+               <td><strong> Spaces: </strong></td>
+               <%}else{%>
+                 <td><strong> Rooms: </strong></td>
+                   <%}%>
+               <td><%= prop_data.rooms%></td>
+          </tr>
+          <%}%>
+            <%if(  prop_data.year_of_construct != null){%>
+          <tr>
+               <td><strong> Year of construct: </strong></td>
+               <td> <%= prop_data.year_of_construct%></td>
+          </tr>
+          <%}%>
+            <%if( prop_data.last_update != null){%>
+          <tr>
+               <td><strong> Last Update: </strong></td>
+               <td><%= prop_data.last_update%></td>
+          </tr>
+          <%}%>
+            <%if( prop_data.agent != null){%>
+          <tr>
+               <td><strong> Agent: </strong> </td>
+               <td><%= prop_data.agent%></td>
+          </tr>
+            <%}%>
+          </table>
+
+
+        </div>
+      </div>
+    <hr>
+
+
+      <% if(prop_data.iner_char.length > 0){%>
+      <center>    <h2 style="color:orange"><strong>Iner characterisitics</strong></h2></center>
+
+            <ul>
+              <%for(var i =0; i< prop_data.iner_char.length; i++){ %>
+                    <li><%= prop_data.iner_char[i] %> </li>
+              <%} %>
+
+            </ul>
+
+
+      <%} %>
+
+      <hr>
+
+      <% if(prop_data.outer_char.length > 0){%>
+      <center><h2 style="color:orange"><strong>Outer characterisitics</strong></h2></center>
+
+            <ul>
+              <%for(var i =0; i< prop_data.outer_char.length; i++){ %>
+                    <li><%= prop_data.outer_char[i] %> </li>
+              <%} %>
+
+            </ul>
+
+      <%} %>
+    <hr>
+    <% if(prop_data.extra_char.length > 0){%>
+    <center><h2 style="color:orange"><strong>Extra characterisitics</strong></h2></center>
+
+          <ul>
+            <%for(var i =0; i< prop_data.extra_char.length; i++){ %>
+                  <li><%= prop_data.extra_char[i] %> </li>
+            <%} %>
+
+          </ul>
+
+    <%} %>
+    <hr>
+
+  <center><h2 style="color:orange"><strong>Details</strong></h2></center>
+
+    <p><%= prop_data.details%></p>
+    <hr>
+
+
+  </div>
+  <hr>
+
+
+</div>
+
+</div>
+<!-- Footer -->
+<footer class="w3-center w3-padding-64" style='background-color :  #001a33;'>
+  <a href="#" class="w3-button " style= 'background-color: #ff8c00;'><i class="fa fa-arrow-up w3-margin-right"></i>To tde top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+<script>
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding tde sidebar when clicking tde menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close tde sidebar witd tde close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function currentDiv(n) {
+  showDivs(slideIndex = n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  if (n > x.lengtd) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.lengtd}
+  for (i = 0; i < x.lengtd; i++) {
+    x[i].style.display = "none";
+  }
+  for (i = 0; i < dots.lengtd; i++) {
+    dots[i].className = dots[i].className.replace(" w3-opacity-off", "");
+  }
+  x[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " w3-opacity-off";
+}
+
+
+
+</script>
+
+</body>
+</html>

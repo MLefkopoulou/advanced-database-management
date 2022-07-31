@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add new</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, textarea, p {
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 22px;
+      }
+      h1 {
+      position: absolute;
+      margin: 0;
+      font-size: 32px;
+      color: #fff;
+      z-index: 2;
+      }
+      .testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 200px;
+      }
+      form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 20px 0 #ff8c00;
+      }
+      .banner {
+      position: relative;
+      height: 500px;
+      background-image:url("images/e-spiti-logo.jpg");
+          background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+      .banner::after {
+      content: "";
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+      input, textarea, select {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+      input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+      select {
+      width: 100%;
+      padding: 7px 0;
+      background: transparent;
+      }
+      textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+      .item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color: #ff8c00;
+      }
+      .item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 6px 0 #ff8c00;
+      color: black;
+      }
+      .item {
+      position: relative;
+      margin: 10px 0;
+      }
+      input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+
+      }
+      .item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: absolute;
+      font-size: 20px;
+      color: #a9a9a9;
+      }
+      .item i {
+      right: 1%;
+      top: 30px;
+      z-index: 1;
+      }
+      [type="date"]::-webkit-calendar-picker-indicator {
+      right: 0;
+      z-index: 2;
+      opacity: 0;
+      cursor: pointer;
+      }
+      input[type="time"]::-webkit-inner-spin-button {
+      margin: 2px 22px 0 0;
+      }
+      input[type=radio], input.other {
+      display: none;
+      }
+      label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 10px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      #radio_5:checked ~ input.other {
+      display: block;
+      }
+      input[type=radio]:checked + label.radio:before {
+      border: 2px solid #ff8c00;
+      background: #ff8c00;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 5px;
+      width: 7px;
+      height: 4px;
+      border: 3px solid #fff;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background: #ff8c00;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background:  #ff8c00;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .city-item input {
+      width: calc(50% - 20px);
+      }
+      .city-item select {
+      width: calc(50% - 8px);
+      }
+      }
+
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+    <div class="testbox">
+      <form action="/updateit" method="post">
+        <div class="banner">
+
+          <h1>UPDATE THIS PROPERTY</h1>
+
+        </div>
+        <div class="item">
+          <p>Title</p>
+          <input type="text" id = "title" name="title"  value="<%= update_data.title %>" />
+        </div>
+        <div class="item">
+          <p>Select case</p>
+          <select name="case" id = "case">
+            <option value="<%=update_data.case%>"></option>
+            <%if(update_data.case == 'ενοικίαση'){%>
+              <option value="ενοικίαση" selected>Rental</option>
+              <option value="Πώληση">Sale</option>
+
+          <%  }else if(update_data.case == 'Πώληση'){%>
+              <option value="ενοικίαση">Rental</option>
+              <option value="Πώληση" selected>Sale</option>
+    <%}%>
+
+          </select>
+        </div>
+        <div class="item" >
+          <p>Select real estate type</p>
+          <select name="real_estate_type" id ="real_estate_type">
+            <option value="<%=update_data.real_estate_type%>"></option>
+            <%if(update_data.real_estate_type == 'Γη'){%>
+              <option value="Γη" selected>Land</option>
+              <option value="Εργασία">Work</option>
+              <option value="Σπίτι">Home</option>
+
+          <%  }else if(update_data.real_estate_type == 'Εργασία'){%>
+              <option value="Γη">Land</option>
+              <option value="Εργασία" selected>Work</option>
+              <option value="Σπίτι">Home</option>
+    <%}else if(update_data.real_estate_type == 'Σπίτι'){%>
+      <option value="Γη">Land</option>
+      <option value="Εργασία">Work</option>
+      <option value="Σπίτι" selected>Home</option>
+      <%}%>
+
+          </select>
+        </div>
+        <div class="item" >
+          <p>Select building</p>
+          <select name="building" id ="building">
+            <option value="<%=update_data.building%>"></option>
+            <%if(update_data.building == 'Διαμέρισμα'){%>
+              <option value="Διαμέρισμα" selected>Department</option>
+              <option value="Στούντιο">Studio</option>
+              <option value="Μονοκατοικία">Detached house</option>
+
+<%            }else if(update_data.building == 'Στούντιο'){%>
+              <option value="Διαμέρισμα" >Department</option>
+              <option value="Στούντιο" selected>Studio</option>
+              <option value="Μονοκατοικία">Detached house</option>
+    <%}else if(update_data.building == 'Μονοκατοικία'){%>
+      <option value="Διαμέρισμα" >Department</option>
+      <option value="Στούντιο">Studio</option>
+      <option value="Μονοκατοικία" selected>Detached house</option>
+      <%}%>
+          </select>
+        </div>
+
+        <div class="item">
+          <p>Town</p>
+          <input type="text" id = "town" name="town"  value="<%= update_data.town %>"/>
+        </div>
+
+        <div class="item">
+          <p>Region</p>
+          <input type="text" id = "region" name="region"  value="<%= update_data.region %>" />
+        </div>
+        <div class="item">
+          <p>Address</p>
+          <input type="text" id = "address" name="address"  value="<%= update_data.address %>" />
+        </div>
+        <div class="item">
+          <p>Area</p>
+          <input type="text" id = "area" name="area"  value="<%= update_data.area %>" />
+        </div>
+
+        <div class="item">
+          <p>Price</p>
+          <input type="number" id = "price" name="price"  value="<%= update_data.price %>" />
+        </div>
+
+        <div class="item">
+          <p>Floors/Stages</p>
+          <input type="number" id = "floor" name="floor"  value="<%= update_data.floor %>" />
+        </div>
+        <div class="item">
+          <p>Rooms/Spaces</p>
+          <input type="number" id = "rooms" name="rooms" value="<%= update_data.rooms %>"/>
+        </div>
+
+        <div class="item">
+          <p>Heating system</p>
+          <input type="text" id = "heating_system" name="heating_system"  value="<%= update_data.heating_system %>" />
+        </div>
+
+        <div class="item">
+          <p>Year of construct</p>
+          <input type="text" id = "year_of_construct" name="year_of_construct"  value="<%= update_data.year_of_construct %>" />
+        </div>
+
+        <div class="question">
+          <p>Parking</p>
+          <div  class="question-answer">
+            <div>
+              <%if (update_data.parking == "Ναι" || update_data.parking == "ναι" ){%>
+                            <input type="radio" value="Ναι" id="radio_1" name="parking" checked/>
+                <%}else{%>
+                              <input type="radio" value="Ναι" id="radio_1" name="parking" />
+                  <%}%>
+
+              <label for="radio_1" class="radio"><span>Yes</span></label>
+            </div>
+            <div>
+              <%if (update_data.parking == "Όχι" || update_data.parking == "οχι" || update_data.parking == "όχι"){%>
+                <input type="radio" value="Όχι" id="radio_2" name="parking" checked/>
+
+                <%}else{%>
+                  <input type="radio" value="Όχι" id="radio_2" name="parking" />
+
+                  <%}%>
+              <label for="radio_2" class="radio"><span>No</span></label>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <p>Iner characterisitics</p>
+          <%if (update_data.iner_char.length > 0){
+            var iner_string ='';
+            for(var i=0; i < (update_data.iner_char.length); i++){
+              if(i+1 ==update_data.iner_char.length ){
+                iner_string =iner_string+ update_data.iner_char;
+              }else{
+                iner_string =iner_string+ update_data.iner_char+',';
+              }
+
+            }
+          }
+          %>
+          <input type="text" id = "iner_char" name="iner_char"  value =" <%=  iner_string%>" />
+
+        </div>
+
+        <div class="item">
+          <p>Outer characterisitics</p>
+          <%if (update_data.outer_char.length > 0){
+            var outer_string ='';
+            for(var i=0; i < (update_data.outer_char.length); i++){
+              if(i+1 ==update_data.outer_char.length ){
+                outer_string =outer_string+ update_data.outer_char;
+              }else{
+                outer_string =outer_string+ update_data.outer_char+',';
+              }
+
+            }
+          }
+          %>
+          <input type="text" id = "outer_char" name="outer_char"  value =" <%= outer_string%>" />
+
+        </div>
+        <div class="item">
+          <p>Extra characterisitics</p>
+          <%if (update_data.extra_char.length > 0){
+            var extra_string ='';
+            for(var i=0; i < (update_data.extra_char.length); i++){
+              if(i+1 ==update_data.extra_char.length ){
+                extra_string =extra_string+ update_data.extra_char;
+              }else{
+                extra_string =extra_string+ update_data.extra_char+',';
+              }
+
+            }
+          }
+          %>
+            <input type="text" id = "extra_char" name="extra_char"  value =" <%= extra_string%>" />
+        </div>
+        <div class="item">
+          <p>Details</p>
+          <input type="text" id = "details" name="details"  value =" <%=  update_data.details%>" />
+
+        </div>
+        <input type="hidden" name="username" value="<%= username %>">
+<input type="hidden" name="id" value="<%= update_data._id %>">
+        <div class="btn-block">
+          <button type="submit" >UPDATE</button>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>
